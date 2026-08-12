@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Consultation Request | Elite Legacy Companionship</title>
+    <style>
+        :root {
+            --bg-color: #fdfbf7;
+            --text-color: #2e1c0c;
+            --accent-color: #a3704c;
+            --banner-bg: #120b04;
+            --card-bg: #f5f0e6;
+            --error-color: #b23b3b;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Georgia', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 5%;
+            border-bottom: 1px solid rgba(46, 28, 12, 0.1);
+            position: sticky;
+            top: 0;
+            background-color: rgba(253, 251, 247, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+        .logo { font-family: 'Georgia', serif; font-size: 1.4rem; font-weight: 700; letter-spacing: 1px; color: var(--banner-bg); text-transform: uppercase; }
+        .logo span { font-family: 'Courier New', monospace; color: var(--accent-color); font-weight: 900; }
+        .nav-links { display: flex; list-style: none; gap: 2.5rem; font-family: 'Segoe UI', sans-serif; }
+        .nav-links a { color: var(--text-color); text-decoration: none; font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; transition: color 0.3s ease; }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent-color); }
+        
+        .container { max-width: 700px; margin: 0 auto; padding: 7rem 5%; }
+        h1 { font-size: 2.5rem; color: var(--banner-bg); margin-bottom: 1.5rem; font-weight: 400; text-align: center; text-transform: uppercase; letter-spacing: 1px; }
+        .subtitle { font-family: 'Segoe UI', sans-serif; font-size: 1.1rem; color: var(--accent-color); text-align: center; margin-bottom: 4rem; font-weight: 400; line-height: 1.8; }
+        
+        /* AJAX Messages Styling */
+        [data-fs-success] { display: none; background-color: var(--banner-bg); color: #fdfbf7; padding: 2.5rem; text-align: center; border-radius: 2px; font-size: 1.15rem; border-left: 4px solid var(--accent-color); margin-bottom: 2rem; }
+        [data-fs-success][data-fs-active] { display: block; }
+        [data-fs-error=''] { display: none; background-color: #fce8e6; color: var(--error-color); padding: 1rem; border-radius: 2px; margin-bottom: 1.5rem; font-size: 0.95rem; font-family: 'Segoe UI', sans-serif; font-weight: 500; }
+        [data-fs-error=''][data-fs-active] { display: block; }
+        .field-error { display: block; color: var(--error-color); font-family: 'Segoe UI', sans-serif; font-size: 0.85rem; margin-top: 0.4rem; font-weight: 500; }
+        input[aria-invalid='true'], select[aria-invalid='true'], textarea[aria-invalid='true'] { border-color: var(--error-color) !important; background-color: #fffcfc; }
+
+        form {
+            background-color: var(--card-bg);
+            padding: 3rem;
+            border-radius: 2px;
+            border-top: 3px solid var(--accent-color);
+        }
+        form[style*="display: none"] { display: none !important; }
+        .form-group { margin-bottom: 2rem; }
+        label { display: block; color: var(--banner-bg); font-size: 0.85rem; font-family: 'Segoe UI', sans-serif; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.75rem; font-weight: 600; }
+        
+        input[type="text"], input[type="email"], input[type="tel"], select, textarea {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--bg-color);
+            border: 1px solid rgba(46, 28, 12, 0.2);
+            color: var(--banner-bg);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent-color); }
+        textarea { resize: vertical; height: 120px; }
+        .note { font-family: 'Segoe UI', sans-serif; font-size: 0.85rem; color: #6e5e4f; margin-top: 0.5rem; font-style: italic; }
+        
+        .submit-btn {
+            display: block;
+            width: 100%;
+            font-family: 'Segoe UI', sans-serif;
+            background: var(--banner-bg);
+            color: #fdfbf7;
+            border: 1px solid var(--banner-bg);
+            padding: 1.2rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.4s ease;
+            margin-top: 3rem;
+        }
+        .submit-btn:hover { background: transparent; color: var(--banner-bg); cursor: pointer; }
+        .submit-btn:disabled { background: #8e8379; color: #d4cdc5; border-color: #8e8379; cursor: not-allowed; }
+        
+        footer { background-color: #120b04; text-align: center; padding: 3rem 5%; font-family: 'Segoe UI', sans-serif; font-size: 0.8rem; letter-spacing: 1px; margin-top: 4rem; }
+        footer p { color: #a3704c; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Elite Legacy<span>.</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">Our Founder</a></li>
+            <li><a href="excellence.html">Standard of Excellence</a></li>
+            <li><a href="apply.html" class="active">Request Consultation</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Request a Private Consultation</h1>
+        <div class="subtitle">To maintain an absolute, uncompromised tier of one-on-one attention, we operate on a strictly limited availability model. Please introduce your family below to initiate our selective evaluation process.</div>
+        
+        <!-- Target containers for AJAX rendering -->
+        <div data-fs-success>
+            Thank you for sharing your family’s narrative. Our private office has received your intention application securely. Kevin will personally review your parent’s lifecycle alignments within the next 24 business hours to arrange your intimate, in-person consultation here in Norfolk.
+        </div>
+        <div data-fs-error></div>
+
+        <form id="intake-form">
+            <div class="form-group">
+                <label for="family-name">Your Full Name & Professional Title</label>
+                <input type="text" id="family-name" name="Client_Name_Title" required placeholder="e.g., Sarah Jenkins, Managing Director" data-fs-field />
+                <span data-fs-error="Client_Name_Title" class="field-error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Direct Email Address</label>
+                <input type="email" id="email" name="Email" required placeholder="email@domain.com" data-fs-field />
+                <span data-fs-error="Email" class="field-error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Direct Phone Number</label>
+                <input type="tel" id="phone" name="Phone_Number" required placeholder="(757) 555-0199" data-fs-field />
+                <span data-fs-error="Phone_Number" class="field-error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="package-intent">Desired Structural Engagement Tier</label>
+                <select id="package-intent" name="Selected_Retainer" required data-fs-field>
+                    <option value="" disabled selected>Select an alignment window...</option>
+                    <option value="4-hour">The 4-Hour "Cognitive & Physical Spark" Retainer</option>
+                    <option value="6-hour">The 6-Hour "Balanced Daily Rhythm" Retainer (Recommended)</option>
+                    <option value="8-hour">The 8-Hour "Sovereign Concierge Day" Retainer</option>
+                </select>
+                <span data-fs-error="Selected_Retainer" class="field-error"></span>
+                <div class="note">All options commence with our mandatory 30-Day Sovereign Evaluation window.</div>
+            </div>
+
+            <div class="form-group">
+                <label for="passions">What are your parent's primary lifelong passions, achievements, or hobbies?</label>
+                <textarea id="passions" name="Parent_Passions_Achievements" placeholder="e.g., Master Bridge player, retired literature professor, fine art collection..." data-fs-field></textarea>
+                <span data-fs-error="Parent_Passions_Achievements" class="field-error"></span>
+                <div class="note">We use this to establish initial cognitive alignment with our Enrichment Associates.</div>
+            </div>
+
+            <div class="form-group">
+                <label for="bliss-goals">What are the active experiences or unfulfilled dreams they wish to explore next?</label>
+                <textarea id="bliss-goals" name="Parent_Bliss_Goals" placeholder="e.g., Documenting their life biography, staging home karaoke afternoons, crafting custom small-batch wine..." data-fs-field></textarea>
+                <span data-fs-error="Parent_Bliss_Goals" class="field-error"></span>
+            </div>
+
+            <button type="submit" class="submit-btn" data-fs-submit-btn>Submit Intention Application</button>
+                </form> 
+    </div> <!-- Closes .container -->
+
+    <footer>
+        <p>&copy; 2026 Elite Legacy Companionship. All Rights Reserved. Private Concierge Companionship Services.</p>
+    </footer>
+
+    <!-- Formspree Live Ingestion Engine Initialization -->
+    <script>
+        window.formspree = window.formspree || function () { 
+            (formspree.q = formspree.q || []).push(arguments); 
+        };
+        // FIXED: Matched formElement identifier target straight to your form's actual ID attribute
+        formspree('initForm', { 
+            formElement: '#intake-form', 
+            formId: 'xbgrykeg' 
+        });
+    </script>
+    <!-- FIXED: Added explicit package routing parameter path to point straight to the Formspree AJAX package library on npm -->
+    <script src="https://unpkg.com" defer></script>
+</body>
+</html>
