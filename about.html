@@ -1,102 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Founder | Elite Legacy Companionship</title>
-    <style>
-        :root {
-            --bg-color: #fdfbf7;
-            --text-color: #2e1c0c;
-            --accent-color: #a3704c;
-            --banner-bg: #120b04;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: 'Georgia', serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.7;
-        }
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 2rem 5%;
-            border-bottom: 1px solid rgba(46, 28, 12, 0.1);
-            position: sticky;
-            top: 0;
-            background-color: rgba(253, 251, 247, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-        }
-        .logo { font-family: 'Georgia', serif; font-size: 1.4rem; font-weight: 700; letter-spacing: 1px; color: var(--banner-bg); text-transform: uppercase; }
-        .logo span { font-family: 'Courier New', monospace; color: var(--accent-color); font-weight: 900; }
-        .nav-links { display: flex; list-style: none; gap: 2.5rem; font-family: 'Segoe UI', sans-serif; }
-        .nav-links a { color: var(--text-color); text-decoration: none; font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; transition: color 0.3s ease; }
-        .nav-links a:hover, .nav-links a.active { color: var(--accent-color); }
-        
-        .container { max-width: 800px; margin: 0 auto; padding: 7rem 5%; }
-        h1 { font-size: 2.5rem; color: var(--banner-bg); margin-bottom: 1rem; font-weight: 400; text-transform: uppercase; letter-spacing: 1px; }
-        .tagline { font-family: 'Segoe UI', sans-serif; font-size: 1.1rem; color: var(--accent-color); margin-bottom: 4rem; font-weight: 400; letter-spacing: 0.5px; text-transform: uppercase; }
-        p { margin-bottom: 2rem; font-size: 1.1rem; text-align: justify; }
-        
-        .quote-banner {
-            background-color: var(--banner-bg);
-            color: #fdfbf7;
-            padding: 3rem;
-            margin: 3.5rem 0;
-            border-left: 4px solid var(--accent-color);
-        }
-        .quote-banner p {
-            font-family: 'Courier New', monospace;
-            font-style: italic;
-            color: #e5dec9;
-            font-size: 1.15rem;
-            margin-bottom: 0;
-            text-align: left;
-        }
-        footer { background-color: #120b04; text-align: center; padding: 3rem 5%; font-family: 'Segoe UI', sans-serif; font-size: 0.8rem; letter-spacing: 1px; }
-        footer p { color: #a3704c; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About | Elite Legacy Companionship</title>
+
+<meta name="description" content="Discover why Elite Legacy was created and the philosophy behind exceptional companionship for older adults.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@400;500;600&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--ink:#292722;
+--soft:#6d685f;
+--gold:#a78b59;
+--gold-dark:#8e7447;
+--cream:#f5f1e9;
+--white:#fcfbf8;
+--line:#ddd7ca;
+}
+
+*{box-sizing:border-box;}
+body{margin:0;background:var(--white);color:var(--ink);font-family:"Lora",Georgia,serif;line-height:1.75;}
+a{color:inherit;text-decoration:none;}
+.container{width:min(1080px,90%);margin:auto;}
+
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;line-height:1.12;}
+h1{font-size:clamp(2.6rem,5vw,3.8rem);}
+h2{font-size:clamp(2.2rem,4vw,3.1rem);}
+h3{font-size:1.7rem;}
+
+.eyebrow{margin-bottom:16px;font-family:Arial,sans-serif;font-size:.68rem;letter-spacing:.19em;text-transform:uppercase;color:var(--gold-dark);}
+.script{font-family:"Allura",cursive;color:var(--gold);font-size:1.25em;}
+
+.site-header{background:rgba(252,251,248,.97);border-bottom:1px solid var(--line);}
+.nav{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:35px;}
+.logo{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.55rem;letter-spacing:.06em;white-space:nowrap;}
+.logo span{display:block;margin-top:-5px;font-family:Arial,sans-serif;font-size:.48rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-dark);}
+.nav-links{display:flex;align-items:center;gap:28px;font-family:Arial,sans-serif;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;}
+.nav-links a{padding:8px 0;border-bottom:1px solid transparent;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold-dark);border-bottom-color:var(--gold);}
+.nav-cta{padding:11px 18px!important;border:1px solid var(--gold)!important;color:var(--gold-dark);}
+
+.hero{background:var(--cream);text-align:center;padding:90px 0;}
+.hero-content{max-width:800px;margin:auto;}
+.hero p{max-width:680px;margin:25px auto 0;color:var(--soft);font-size:1.08rem;}
+
+section{padding:90px 0;}
+.story{max-width:800px;}
+.story p{font-size:1.04rem;}
+.quote{margin:38px 0;padding-left:28px;border-left:2px solid var(--gold);font-family:"Cormorant Garamond",Georgia,serif;font-size:1.85rem;line-height:1.4;}
+
+.highlight{background:var(--cream);}
+.highlight-inner{max-width:800px;margin:auto;}
+
+.dark{background:var(--ink);color:white;}
+.dark p{color:#ddd9d0;}
+.dark-inner{max-width:800px;margin:auto;}
+
+.button{display:inline-block;margin-top:20px;padding:13px 25px;background:var(--gold);color:white;font-family:Arial,sans-serif;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;}
+
+footer{padding:55px 0 30px;border-top:1px solid var(--line);background:var(--cream);}
+.footer-inner{display:flex;justify-content:space-between;gap:40px;}
+.footer-brand{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.4rem;}
+.footer-brand p{margin-top:5px;color:var(--soft);font-family:"Lora",Georgia,serif;font-size:.85rem;}
+.footer-links{display:flex;gap:22px;font-family:Arial,sans-serif;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;}
+.copyright{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);color:var(--soft);font-family:Arial,sans-serif;font-size:.65rem;}
+
+@media(max-width:850px){
+.nav{flex-direction:column;padding:20px 0;gap:18px;}
+.nav-links{flex-wrap:wrap;justify-content:center;gap:15px 20px;}
+section{padding:70px 0;}
+.footer-inner{flex-direction:column;}
+.footer-links{flex-wrap:wrap;}
+}
+</style>
 </head>
+
 <body>
-    <nav>
-        <div class="logo">Elite Legacy<span>.</span></div>
-        <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">Our Founder</a></li>
-    <li><a href="science.html">The Science</a></li>
-    <li><a href="excellence.html">Standard of Excellence</a></li>
-    <li><a href="apply.html">Request Consultation</a></li>
-</ul>
 
-    </nav>
+<header class="site-header">
+<nav class="nav container">
+<a href="index.html" class="logo">Elite Legacy<span>Exceptional Companionship</span></a>
+<div class="nav-links">
+<a href="about.html" class="active">About</a>
+<a href="apply.html">The Experience</a>
+<a href="excellence.html">Our Standard</a>
+<a href="science.html">Why It Matters</a>
+<a href="apply.html" class="nav-cta">Start a Conversation</a>
+</div>
+</nav>
+</header>
 
-    <div class="container">
-        <h1>The Genesis of Elite Legacy</h1>
-        <div class="tagline">A standard born from corporate integrity and personal devotion.</div>
-        
-        <p>Elite Legacy Companionship was not designed in a corporate boardroom; it was forged through a profound personal commitment. Our founder, Kevin, spent over 25 years navigating the high-stakes landscape of global corporate marketing and business strategy, diagnosing invisible structural patterns for premier brands. As a published author, his career has focused entirely on deep communication, structural excellence, and understanding the human narrative.</p>
-        <p>But his most critical work began when he stepped away from the commercial world to preserve the dignity and lifestyle of his own family.</p>
-        
-        <div class="quote-banner">
-            <p>"A few years ago, after my father—a respected physician in the affluent community of La Jolla, California—passed away, I noticed a shift in my mother. She had always been a fiercely vibrant, active woman—a Master Bridge Player who won numerous awards and played passionately three to four days a week. Recognizing she needed support, I made the decision to move back into our family home in San Diego to be completely by her side."</p>
-        </div>
 
-        <p>During a routine check-up, doctors ran standard diagnostic blood work. That very night, a call came from the clinic with an urgent mandate: <em>'Get to the hospital immediately. Her kidneys are shutting down.'</em></p>
-        <p>The subsequent diagnosis was staggering. Advanced colon cancer had metastasized to her liver and lungs, compounded by 14 severe stomach ulcers causing acute internal bleeding. She required multiple pints of blood and intense stabilization protocols. The medical timeline was clear: she had only weeks left to live.</p>
-        <p>It was in that moment of crisis that Kevin rejected the standard narrative of a somber, clinical decline. He chose to aggressively crowd out the suffering by flooding her environment with life, status, and joy.</p>
-        
-        <div class="quote-banner">
-            <p>"I mathematically structured her days around her lifelong passions. Three days a week, I arranged for her inner circle of friends to come over to the house to play Bridge. We hosted elegant lunch parties weekly. Friends gathered for dinner almost every single night. Even closer to the end, when she was confined to her room, I brought the experience to her. I invited a group of close friends into her bedroom to hang out, laugh, and share a premium lobster dinner—her absolute favorite."</p>
-        </div>
+<section class="hero">
 
-        <p>By intentionally filling her time with high-touch social rituals and emotional connection, she never had the time to get somber about her illness. She passed away surrounded by the things that made her feel sophisticated, independent, and entirely herself. We give your family that exact same superpower: the ability to change the identity of aging from isolation to active legacy.</p>
-    </div>
+<div class="container hero-content">
 
-    <footer>
-        <p>&copy; 2026 Elite Legacy Companionship. All Rights Reserved. Private Concierge Companionship Services.</p>
-    </footer>
+<div class="eyebrow">About Elite Legacy</div>
+
+<h1>
+This didn't begin as a business idea.
+<span class="script">It began with a realization.</span>
+</h1>
+
+<p>
+What would I want my own life to look like when I reach this stage?
+</p>
+
+</div>
+
+</section>
+
+
+<section>
+
+<div class="container story">
+
+<p>
+Many of us eventually find ourselves watching our parents grow older.
+Sometimes we've already lost one of them.
+</p>
+
+<p>
+We remember what that was like.
+The changes. The smaller world. The days that seemed to have less in them.
+</p>
+
+<p>
+And then, almost without realizing it, we begin wondering about our
+own future.
+</p>
+
+<div class="quote">
+What will my life look like then?<br>
+Who will I spend my days with?<br>
+What will I have to look forward to?
+</div>
+
+<p>
+Those questions stayed with me.
+</p>
+
+<h2>
+And then came the slightly
+<span class="script">selfish</span> part.
+</h2>
+
+<p>
+When I get to this stage of my own life, this is what I would want.
+</p>
+
+<p>
+I wouldn't want someone simply checking on me.
+I wouldn't want someone whose job was just to make sure I was okay.
+</p>
+
+<p>
+I'd want someone interesting to talk to.
+Someone who would listen to my stories.
+Someone who would ask questions.
+Someone who would laugh with me.
+Someone who would want to know what I was thinking.
+</p>
+
+<p>
+I'd want someone who would say,
+<em>"What do you feel like doing today?"</em>
+and actually be interested in the answer.
+</p>
+
+<div class="quote">
+I would want someone who was interested in who I still am —
+not simply what I can no longer do.
+</div>
+
+<p>
+And that's when the idea of Elite Legacy began to take shape.
+</p>
+
+</div>
+
+</section>
+
+
+<section class="highlight">
+
+<div class="container highlight-inner">
+
+<div class="eyebrow">The Idea</div>
+
+<h2>
+Not care.
+<span class="script">Connection.</span>
+</h2>
+
+<p>
+Elite Legacy isn't a traditional home-care service.
+It isn't a babysitting service.
+And it isn't about filling eight hours with activities.
+</p>
+
+<p>
+It is about creating a genuine human relationship around the person —
+their interests, their experiences, their stories, their humor,
+their curiosity and the things that still make them feel alive.
+</p>
+
+<p>
+Because people don't stop being interesting because they get older.
+</p>
+
+</div>
+
+</section>
+
+
+<section class="dark">
+
+<div class="container dark-inner">
+
+<div class="eyebrow">Starting Carefully</div>
+
+<h2>
+We're beginning with a very small number of families.
+<span class="script">On purpose.</span>
+</h2>
+
+<p>
+The first relationships will help establish the standards, practices
+and training that will eventually allow Elite Legacy to bring this
+experience to more people.
+</p>
+
+<p>
+Every relationship will teach us something.
+Every Companion will be trained in what we learn.
+</p>
+
+<p>
+We're not trying to become large quickly.
+</p>
+
+<h2>
+We're trying to become
+<span class="script">exceptional first.</span>
+</h2>
+
+</div>
+
+</section>
+
+
+<section>
+
+<div class="container story">
+
+<div class="eyebrow">The Reason</div>
+
+<h2>
+Maybe the greatest gift we can give someone is
+<span class="script">something to look forward to.</span>
+</h2>
+
+<p>
+A person coming through the door.
+A favorite game.
+A walk.
+A conversation.
+A project.
+A story they haven't told anyone in years.
+</p>
+
+<p>
+Something that makes tomorrow feel a little more interesting.
+</p>
+
+<a href="apply.html" class="button">Start a Conversation</a>
+
+</div>
+
+</section>
+
+
+<footer>
+<div class="container">
+<div class="footer-inner">
+<div class="footer-brand">Elite Legacy<p>Exceptional companionship for life's later years.</p></div>
+<div class="footer-links">
+<a href="index.html">Home</a>
+<a href="apply.html">Experience</a>
+<a href="excellence.html">Our Standard</a>
+<a href="science.html">Why It Matters</a>
+</div>
+</div>
+<div class="copyright">© 2026 Elite Legacy Companionship. All rights reserved.</div>
+</div>
+</footer>
+
 </body>
 </html>
